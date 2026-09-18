@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Durban Paws Rescue</title>
+  <meta name="description" content="Contact Durban Paws Rescue: find our shelter and drop-off point locations, and send us a message.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <a href="index.html">Durban Paws Rescue</a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="enquiry.html">Enquire</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <h1>Contact Us</h1>
+
+    <!-- Two locations as required for the contact page -->
+    <section class="locations">
+
+      <article class="location">
+        <h2>Main Shelter — Pinetown</h2>
+        <p>12 Wattle Road, Pinetown, Durban, 3610</p>
+        <p>Tel: 031 555 0182</p>
+        <p>Open Monday to Saturday, 09:00–16:00</p>
+        <iframe
+          title="Map showing Durban Paws Rescue main shelter in Pinetown"
+          src="https://www.google.com/maps?q=Pinetown,Durban&output=embed"
+          width="100%" height="300" style="border:0;" loading="lazy">
+        </iframe>
+      </article>
+
+      <article class="location">
+        <h2>Drop-off Point — Westville</h2>
+        <p>4 Jan Hofmeyr Road, Westville, Durban, 3629</p>
+        <p>Tel: 031 555 0197</p>
+        <p>Open Tuesday to Friday, 10:00–14:00</p>
+        <iframe
+          title="Map showing Durban Paws Rescue drop-off point in Westville"
+          src="https://www.google.com/maps?q=Westville,Durban&output=embed"
+          width="100%" height="300" style="border:0;" loading="lazy">
+        </iframe>
+      </article>
+
+    </section>
+
+    <!-- General contact form -->
+    <section class="contact-form">
+      <h2>Send Us a Message</h2>
+      <form action="#" method="post" id="contact-form">
+
+        <label for="c-full-name">Full Name</label>
+        <input type="text" id="c-full-name" name="full-name" required>
+
+        <label for="c-email">Email Address</label>
+        <input type="email" id="c-email" name="email" required>
+
+        <label for="c-subject">Subject</label>
+        <input type="text" id="c-subject" name="subject" required>
+
+        <label for="c-message">Message</label>
+        <textarea id="c-message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Durban Paws Rescue. All rights reserved.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

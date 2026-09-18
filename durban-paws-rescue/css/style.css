@@ -1,0 +1,548 @@
+/* 1. CSS reset / base style  */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* 2. Custom properties (design tokens) */
+
+:root {
+  /* Colour scheme, matched to the Part 1 project proposal */
+  --color-teal: #1b6b73;
+  --color-teal-dark: #124a50;
+  --color-sand: #f2e9dc;
+  --color-sand-light: #faf6ef;
+  --color-coral: #f26b5e;
+  --color-coral-dark: #d54f42;
+  --color-text: #2a2622;
+  --color-text-muted: #5c564d;
+  --color-white: #ffffff;
+  --color-border: #e2d8c6;
+
+  /* Typography scale */
+  --font-heading: "Poppins", "Segoe UI", Arial, sans-serif;
+  --font-body: "Open Sans", "Segoe UI", Arial, sans-serif;
+  --step-0: 1rem;
+  --step-1: 1.25rem;
+  --step-2: 1.75rem;
+  --step-3: 2.5rem;
+
+  /* Spacing scale, used for padding/margin/gap throughout */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+
+  /* Layout */
+  --max-width: 1100px;
+  --radius: 10px;
+  --shadow: 0 4px 14px rgba(27, 107, 115, 0.12);
+}
+
+/* 3. Typography */
+body {
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  color: var(--color-text);
+  background-color: var(--color-sand-light);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-teal-dark);
+}
+
+h1 {
+  font-size: var(--step-3);
+}
+
+h2 {
+  font-size: var(--step-2);
+  margin-bottom: var(--space-sm);
+}
+
+h3 {
+  font-size: var(--step-1);
+  margin-bottom: var(--space-xs);
+}
+
+p {
+  margin-bottom: var(--space-sm);
+  color: var(--color-text);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* 4. Header and navigation  */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo a {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--step-1);
+  color: var(--color-teal);
+}
+
+nav ul {
+  display: flex;
+  gap: var(--space-md);
+}
+
+nav a {
+  font-weight: 600;
+  padding: var(--space-xs) 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  color: var(--color-coral);
+  border-bottom-color: var(--color-coral);
+}
+
+nav a[aria-current="page"] {
+  color: var(--color-teal);
+  border-bottom-color: var(--color-teal);
+}
+
+/* 5. Buttons and links  */
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: var(--color-coral);
+  color: var(--color-white);
+  font-weight: 600;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius);
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.cta-button:hover,
+.cta-button:focus-visible {
+  background-color: var(--color-coral-dark);
+  transform: translateY(-2px);
+}
+
+.cta-button:active {
+  transform: translateY(0);
+}
+
+.intro a {
+  color: var(--color-teal);
+  font-weight: 600;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.intro a:hover,
+.intro a:focus-visible {
+  border-bottom-color: var(--color-teal);
+}
+
+/* 6. Homepage sections */
+.hero {
+  text-align: center;
+  background-color: var(--color-white);
+  border-radius: var(--radius);
+  padding: var(--space-xl) var(--space-lg);
+  box-shadow: var(--shadow);
+}
+
+.hero img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: var(--space-md);
+}
+
+.hero h1 {
+  margin-bottom: var(--space-sm);
+}
+
+.hero p {
+  max-width: 45ch;
+  margin-inline: auto;
+  margin-bottom: var(--space-md);
+  color: var(--color-text-muted);
+}
+
+.intro {
+  text-align: center;
+  max-width: 65ch;
+  margin-inline: auto;
+}
+
+.highlights ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.highlights li {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.highlights li:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-4px);
+}
+
+.cta-repeat {
+  text-align: center;
+  background-color: var(--color-teal);
+  color: var(--color-white);
+  border-radius: var(--radius);
+  padding: var(--space-xl) var(--space-lg);
+}
+
+.cta-repeat h2 {
+  color: var(--color-white);
+}
+
+.cta-repeat p {
+  color: var(--color-sand);
+  max-width: 50ch;
+  margin-inline: auto;
+  margin-bottom: var(--space-md);
+}
+
+.cta-repeat .cta-button {
+  background-color: var(--color-white);
+  color: var(--color-teal-dark);
+}
+
+.cta-repeat .cta-button:hover,
+.cta-repeat .cta-button:focus-visible {
+  background-color: var(--color-sand);
+}
+
+/* 7. About page sections */
+main > h1 {
+  text-align: center;
+}
+
+.history,
+.mission-vision {
+  max-width: 70ch;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.mission-vision h2 {
+  margin-top: var(--space-md);
+}
+
+.team ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.team li {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  text-align: center;
+}
+
+.team img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto var(--space-sm);
+  border: 3px solid var(--color-sand);
+}
+
+/* 8. Services page sections */
+.service {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: var(--space-md);
+  align-items: center;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+}
+
+.service img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  grid-row: 1 / 3;
+}
+
+.service h2 {
+  grid-column: 2;
+}
+
+.service p,
+.service ul {
+  grid-column: 2;
+}
+
+.service ul {
+  list-style: disc;
+  padding-left: var(--space-md);
+  color: var(--color-text-muted);
+}
+
+.service ul li {
+  margin-bottom: var(--space-xs);
+}
+
+/* 9. Forms (enquiry and contact pages) */
+form {
+  max-width: 560px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+}
+
+form label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  font: inherit;
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background-color: var(--color-sand-light);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--color-teal);
+  box-shadow: 0 0 0 3px rgba(27, 107, 115, 0.15);
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+form button {
+  align-self: flex-start;
+  background-color: var(--color-coral);
+  color: var(--color-white);
+  font-weight: 600;
+  border: none;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius);
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+form button:hover,
+form button:focus-visible {
+  background-color: var(--color-coral-dark);
+  transform: translateY(-2px);
+}
+
+form button:active {
+  transform: translateY(0);
+}
+
+/* 10. Contact locations and map */
+.locations {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+.location {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+}
+
+.location h2 {
+  font-size: var(--step-1);
+}
+
+.location iframe {
+  width: 100%;
+  border-radius: var(--radius);
+  margin-top: var(--space-sm);
+}
+
+/* 11. Footer */
+footer {
+  text-align: center;
+  padding: var(--space-md);
+  background-color: var(--color-teal-dark);
+  color: var(--color-sand);
+}
+
+footer a {
+  font-weight: 600;
+  color: var(--color-white);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+footer a:hover,
+footer a:focus-visible {
+  border-bottom-color: var(--color-white);
+}
+
+/* 12. Responsive breakpoints */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  main {
+    padding: var(--space-md);
+    gap: var(--space-lg);
+  }
+
+  .highlights ul,
+  .team ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .service {
+    grid-template-columns: 1fr;
+  }
+
+  .service img {
+    grid-row: auto;
+    height: 200px;
+  }
+
+  .service h2,
+  .service p,
+  .service ul {
+    grid-column: auto;
+  }
+
+  .locations {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: var(--space-xs);
+    width: 100%;
+  }
+
+  main {
+    padding: var(--space-sm);
+    gap: var(--space-lg);
+  }
+
+  h1 {
+    font-size: var(--step-2);
+  }
+
+  h2 {
+    font-size: var(--step-1);
+  }
+
+  .hero {
+    padding: var(--space-lg) var(--space-sm);
+  }
+
+  .highlights ul,
+  .team ul {
+    grid-template-columns: 1fr;
+  }
+
+  form {
+    padding: var(--space-md);
+  }
+
+  form button {
+    width: 100%;
+  }
+}
